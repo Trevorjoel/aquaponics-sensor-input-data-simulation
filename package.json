@@ -1,0 +1,22 @@
+{
+  "name": "aquaponics-sensor-input-data-simulation",
+  "version": "1.0.0",
+  "description": "Generate data to simulate probe input data",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Trevor",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "latest",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
