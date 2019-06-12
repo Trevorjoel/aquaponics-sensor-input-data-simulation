@@ -2,11 +2,11 @@
   "name": "aquaponics-sensor-input-data-simulation",
   "version": "1.0.0",
   "description": "Generate data to simulate probe input data",
-  "main": "server.js",
+  "main": "server/temperatureSim.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "dev": "nodemon server/temperatureSim.js",
+    "start": "node server/server.js"
   },
   "author": "Trevor",
   "license": "MIT",
