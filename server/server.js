@@ -13,3 +13,4 @@ console.log("FROM THE SERVER FILE: " + temperatureModule.reading);
 let readingPromise = new Promise(function (resolve, reject) {
   // if (reading)
 });
+ let variablr1 = await

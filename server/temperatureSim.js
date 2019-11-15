@@ -3,18 +3,19 @@ const moment = require('moment');
 
 function temperatureModule()  {
     let recordId = 0; // Set the unique id
-    let timesToExecute = 5; // Set the number of times the function should execute
-    const frequency = 700; // Set how frequently it should run in milliseconds
+    let timesToExecute = 10; // Set the number of times the function should execute
+    const frequency = 2000; // Set how frequently it should run in milliseconds
     const max = 26; //  max value for temperature
     let min = 0; // min value for temperature
     let reading =[];
     
+    
 // Main temperature function
     function temperatureSim() {
-        console.log('This RUNS Temp sim Func');
-        console.log('This RUNS times to execute : ' + timesToExecute);
+       /* console.log('This RUNS Temp sim Func');*/
+        console.log('Times left to execute : ' + timesToExecute);
     if (timesToExecute !== 0) {
-        console.log('This RUNS Temp sim Func if statement');
+        /*console.log('This RUNS Temp sim Func if statement');*/
         let temp = randomNumber(max, min);
         let setStatus = statusSetter(temp);
         let timeStamp = moment().format('MMMM Do YYYY, h:mm:ss a'); // Month 10th 2019, 5:12:19 pm
@@ -28,21 +29,22 @@ function temperatureModule()  {
         reading.push(temperatureParams);
         temperaturePromise
             .then(() => { // Probably add a method here that allows interaction of various sensors data
-                console.log('This RUNS on fulfilled promise statement');
-                console.log('Reading(in promise)1 : ' + reading);
-                console.log('Reading(in promise)2 : ' + reading[0].time);
+                /*console.log('This RUNS on fulfilled promise statement');
+                console.log('Reading(in promise)1 : ' + reading);*/
+                console.log('CURRENT READING : ' + JSON.stringify(reading[0]));
                 let jsonString = JSON.stringify(reading);
-                console.log(jsonString);
+                console.log('ALL READINGS : ' + jsonString);
                 module.exports.reading = reading;
             
             })
         
             .catch(function () {
-                console.log('This RUNS catch');
+               /* console.log('This RUNS catch');*/
             });
         
         timesToExecute--;
         recordId++;
+        
         
         return reading;
     } else {
@@ -61,7 +63,7 @@ let randomNumber = (max, min) => {
 };
 
 // Set status alert
-function statusSetter(temp) {
+ async function statusSetter(temp) {
     let st;
     switch (true) {
         case temp <= 3 :
@@ -107,6 +109,8 @@ let temperaturePromise = new Promise(function (resolve, reject) {
  // In practicality, high temperatures also makes ammonia more toxic to fish at lower levels..
  // This may/may not need to be built into the system but for my own clarity in interested in how to pass
     the 'reading' object array into other places
+ *TO DO*
+ Separate the alert function from the temp sim in order to enable people to select fish type.
  
  */
 
